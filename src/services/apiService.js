@@ -1,10 +1,5 @@
 const API_BASE_URL = 'http://localhost:3000'
 
-/**
- * Fetches user general information
- * @param {number} userId - The user ID
- * @returns {Promise<Object>} User data
- */
 export const getUserData = async (userId) => {
   try {
     const response = await fetch(`${API_BASE_URL}/user/${userId}`)
@@ -19,11 +14,7 @@ export const getUserData = async (userId) => {
   }
 }
 
-/**
- * Fetches user activity data (weight and calories)
- * @param {number} userId - The user ID
- * @returns {Promise<Object>} Activity data with sessions
- */
+
 export const getUserActivity = async (userId) => {
   try {
     const response = await fetch(`${API_BASE_URL}/user/${userId}/activity`)
@@ -38,11 +29,7 @@ export const getUserActivity = async (userId) => {
   }
 }
 
-/**
- * Fetches user average session duration
- * @param {number} userId - The user ID
- * @returns {Promise<Object>} Average session data
- */
+
 export const getUserAverageSessions = async (userId) => {
   try {
     const response = await fetch(`${API_BASE_URL}/user/${userId}/average-sessions`)
@@ -57,11 +44,7 @@ export const getUserAverageSessions = async (userId) => {
   }
 }
 
-/**
- * Fetches user performance data
- * @param {number} userId - The user ID
- * @returns {Promise<Object>} Performance data
- */
+
 export const getUserPerformance = async (userId) => {
   try {
     const response = await fetch(`${API_BASE_URL}/user/${userId}/performance`)

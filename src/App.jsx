@@ -22,6 +22,15 @@ function App() {
   const [performanceData, setPerformanceData] = useState([])
   const [userId, setUserId] = useState(12)
 
+  console.log("allUsers", allUsers);
+  // console.log("userData", userData);
+  // console.log("activityData", activityData);
+  // console.log("avgSessions", avgSessions);
+  // console.log("performanceData", performanceData);
+  // console.log("userId", userId);
+
+
+
   // Fetch all users data on mount
   useEffect(() => {
     const fetchAllUsers = async () => {
@@ -108,12 +117,12 @@ function App() {
             )}
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '3fr 1fr', gap: '24px', marginTop: '24px' }}>
-            {/* Main content area */}
+            {/* Main content */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              {/* ActivityChart full width */}
+              {/* ActivityChart*/}
               <ActivityChart data={activityData} />
               
-              {/* 3 charts in a row */}
+              {/* SessionAverage, Performance, Score */}  
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px' }}>
                 <SessionAverage data={avgSessions} />
                 <Performance data={performanceData} />
@@ -121,7 +130,7 @@ function App() {
               </div>
             </div>
 
-            {/* KeyDataCards vertical on the right */}
+            {/*KeyDataCards*/}
             {userData && (
               <div className={styles.keyDataSection}>
                 <KeyDataCard

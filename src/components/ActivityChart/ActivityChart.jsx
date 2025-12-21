@@ -4,9 +4,6 @@ import CustomTooltip from './CustomTooltip';
 import styles from './ActivityChart.module.css';
 
 function ActivityChart({ data }) {
-         
-         console.log("data", )
-
 	return (
 		<div className={styles.container}>
 			<div className={styles.header}>
