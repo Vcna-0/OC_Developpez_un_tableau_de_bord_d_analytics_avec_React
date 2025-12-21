@@ -1,0 +1,13 @@
+.iconBtn{
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  cursor: pointer;
+  padding: 12px;
+}

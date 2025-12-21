@@ -1,0 +1,53 @@
+.card {
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 40px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.iconBox {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #282d30;
+  margin: 0;
+}
+
+.label {
+  font-size: 13px;
+  color: #9b9eac;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 12px;
+  }
+  .iconBox {
+    width: 45px;
+    height: 45px;
+  }
+  .value {
+    font-size: 14px;
+  }
+  .label {
+    font-size: 12px;
+  }
+}
