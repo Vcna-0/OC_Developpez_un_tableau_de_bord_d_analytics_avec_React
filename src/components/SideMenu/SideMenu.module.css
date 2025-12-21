@@ -1,0 +1,31 @@
+.sidebar{
+  width: 90px;
+  background: #000;
+  min-height: calc(100vh - 65px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 12px;
+  position: fixed;
+  left: 0;
+  top: 65px;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: auto 0; /* centre verticalement les boutons */
+}
+
+
+
+.copyright{
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: #fff;
+  font-size: 12px;
+  opacity: 0.6;
+  margin-bottom: 8px;
+}

@@ -1,0 +1,73 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.header{
+  padding: 1rem .5rem;
+  margin: auto;
+  background-color: #020203;
+  position: relative;
+  z-index: 10;
+}
+
+.main{
+  display: flex;
+  min-height: calc(100vh - 65px);
+}
+
+.content{
+  margin-left: 90px;
+  padding: 50px 300px 25px 300px;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* App specific toolbar for greeting and toggle */
+.toolbar {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.greeting {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  color: #20253A;
+}
+
+.greeting span {
+  color: #ff0101;
+}
+
+.keyDataSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+@media (max-width: 1200px) {
+  .keyDataSection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .keyDataSection {
+    grid-template-columns: 1fr;
+  }
+}
