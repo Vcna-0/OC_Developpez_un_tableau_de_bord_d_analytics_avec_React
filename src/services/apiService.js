@@ -2,17 +2,9 @@ import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE 
 
 const API_BASE_URL = 'http://localhost:3000'
 
-/**
- * Simulates network delay for mock data
- * @param {number} ms - Delay in milliseconds
- */
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
-/**
- * Fetches user main data
- * @param {number} userId - User ID (12 or 18)
- * @param {boolean} useMock - If true, return mock data instead of API data
- */
+
 export const getUserData = async (userId, useMock = false) => {
   if (useMock) {
     await delay(100)

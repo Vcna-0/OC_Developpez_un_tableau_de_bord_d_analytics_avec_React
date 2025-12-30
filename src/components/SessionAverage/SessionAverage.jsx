@@ -1,6 +1,23 @@
-import { ResponsiveContainer, LineChart, Line, XAxis, Tooltip } from 'recharts'
+import { ResponsiveContainer, LineChart, Line, XAxis, Tooltip, Rectangle } from 'recharts'
 import SessionTooltip from './SessionTooltip'
 import styles from './SessionAverage.module.css'
+
+function CustomCursor({ points, width, height }) {
+  if (!points || points.length === 0) return null
+
+  const { x } = points[0]
+
+  return (
+    <Rectangle
+      x={x}
+      y={0}
+      width={width - x + 10}
+      height={height + 50}
+      fill="rgba(0, 0, 0, 0.1)"
+      style={{ transition: 'all 0.15s ease-out' }}
+    />
+  )
+}
 
 function SessionAverage({ data = [] }) {
   const dayLetters = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
@@ -21,7 +38,11 @@ function SessionAverage({ data = [] }) {
             tickLine={false}
             tick={{ fill: 'rgba(255,255,255,0.6)', fontSize: 12 }}
           />
-          <Tooltip content={<SessionTooltip />} cursor={false} wrapperStyle={{ outline: 'none' }} />
+          <Tooltip
+            content={<SessionTooltip />}
+            cursor={<CustomCursor />}
+            wrapperStyle={{ outline: 'none' }}
+          />
           <Line
             type="monotone"
             dataKey="sessionLength"
