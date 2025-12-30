@@ -1,0 +1,28 @@
+.container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.greeting {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  color: #20253A;
+}
+
+.greeting span {
+  color: #ff0101;
+}
+
+.message {
+  margin: 0;
+  color: #20253A;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
