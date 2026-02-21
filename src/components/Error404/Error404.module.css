@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 40px;
+}
+
+.content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.errorCode {
+  font-size: 120px;
+  font-weight: 700;
+  color: #E60000;
+  margin: 0;
+  line-height: 1;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 500;
+  color: #20253A;
+  margin: 20px 0 10px;
+}
+
+.message {
+  font-size: 16px;
+  color: #74798C;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.buttonPrimary,
+.buttonSecondary {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.buttonPrimary {
+  background-color: #E60000;
+  color: white;
+  border: none;
+}
+
+.buttonPrimary:hover {
+  background-color: #CC0000;
+}
+
+.buttonSecondary {
+  background-color: transparent;
+  color: #20253A;
+  border: 2px solid #20253A;
+}
+
+.buttonSecondary:hover {
+  background-color: #20253A;
+  color: white;
+}
+
+.hint {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #9B9EAC;
+}
+
+.hint code {
+  background-color: #F4F4F4;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+}

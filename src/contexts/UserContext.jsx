@@ -4,13 +4,16 @@ const UserContext = createContext(null)
 
 export function UserProvider({ children }) {
   const [userId, setUserId] = useState(12)
-  const [useMock, setUseMock] = useState(false)
+  const [useMock, setUseMock] = useState(true)
+  const [apiError, setApiError] = useState(null)
 
   const value = {
     userId,
     useMock,
+    apiError,
     setUserId,
     setUseMock,
+    setApiError,
   }
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>

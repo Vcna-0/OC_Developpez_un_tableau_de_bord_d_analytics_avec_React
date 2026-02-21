@@ -4,16 +4,19 @@ import { getUserData, getUserActivity, getUserAverageSessions, getUserPerformanc
 import DashboardHeader from './DashboardHeader'
 import ChartsGrid from './ChartsGrid'
 import KeyDataSection from './KeyDataSection'
+import Error404 from '../Error404/Error404'
+import Loader from '../Loader/Loader'
 import styles from './Dashboard.module.css'
 
 function Dashboard() {
-  const { userId, useMock } = useUser()
+  const { userId, useMock, apiError, setApiError } = useUser()
 
   const [activityData, setActivityData] = useState([])
   const [allUsers, setAllUsers] = useState([])
   const [userData, setUserData] = useState(null)
   const [avgSessions, setAvgSessions] = useState([])
   const [performanceData, setPerformanceData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchAllUsers = async () => {
@@ -21,19 +24,25 @@ function Dashboard() {
         const user12 = await getUserData(12, useMock)
         const user18 = await getUserData(18, useMock)
         setAllUsers([user12.data, user18.data])
+        setApiError(null)
       } catch (error) {
         console.error('Error fetching users:', error)
+        if (!useMock) {
+          setApiError("Impossible de se connecter au serveur. L'API n'est peut-etre pas demarree.")
+        }
       }
     }
 
     fetchAllUsers()
-  }, [useMock])
+  }, [useMock, setApiError])
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true)
       try {
         const userDataRes = await getUserData(userId, useMock)
         setUserData(userDataRes.data)
+        setApiError(null)
 
         const activityRes = await getUserActivity(userId, useMock)
         const formattedData = activityRes.data.sessions.map((session, index) => ({
@@ -58,11 +67,24 @@ function Dashboard() {
         }
       } catch (error) {
         console.error('Error fetching data:', error)
+        if (!useMock) {
+          setApiError("Impossible de se connecter au serveur. L'API n'est peut-etre pas demarree.")
+        }
+      } finally {
+        setIsLoading(false)
       }
     }
 
     fetchData()
-  }, [userId, useMock])
+  }, [userId, useMock, setApiError])
+
+  if (apiError) {
+    return <Error404 />
+  }
+
+  if (isLoading) {
+    return <Loader />
+  }
 
   return (
     <div className={styles.container}>
