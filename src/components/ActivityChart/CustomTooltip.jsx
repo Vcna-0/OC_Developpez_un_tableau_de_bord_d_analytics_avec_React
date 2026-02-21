@@ -1,6 +1,3 @@
-
-
-// Tooltip personnalisé pour respecter le design
 function CustomTooltip({ active, payload }) {
 	if (active && payload && payload.length === 2) {
 		return (
